@@ -7,9 +7,9 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { ThemeComponent } from './Components/theme/theme.component';
 import { ThemeService } from './Services/theme.service';
 import { HomeComponent } from './Components/home/home.component';
-import { DealsComponent } from './Components/Home/deals/deals.component';
+import { DealsComponent } from './Components/home/deals/deals.component';
 
-import { HomesliderComponent } from './Components/Home/homeslider/homeslider.component';
+import { HomesliderComponent } from './Components/home/homeslider/homeslider.component';
 
 @NgModule({
   declarations: [

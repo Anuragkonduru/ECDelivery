@@ -1,0 +1,10 @@
+ <div class="flex gap-4 ">
+  <button (click)="slideLeft()" >Left</button>
+    <img
+      [src]="currentUrl"
+      alt="Slide {{ currentIndex + 1 }}"
+      class="max-h-96 w-full object-fit transition-transform duration-300 "
+    />
+  <button (click)="slideRight()">Right</button>
+</div> 
+

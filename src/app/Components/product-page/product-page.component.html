@@ -1,26 +1,24 @@
 <div class="flex gap-3 px-10">
-  <div
-    *ngFor="let detail of homeDetails; let i; index"
+  <div 
     class="overflow-hidden rounded-lg shadow transition hover:shadow-lg dark:shadow-gray-700/25"
-    (click)="selectedProduct($event,detail.id)"
   >
     <img
       alt="Office"
-      src="{{ detail.imageUrl }}"
+      src="{{ productDetail?.imageUrl }}"
       class="h-70 w-full object-cover"
     />
 
     <div class="bg-white p-4 dark:bg-gray-900 sm:p-6">
       <a href="#">
         <h3 class="mt-0.5 text-lg text-gray-900 dark:text-white" >
-          {{ detail.Title }}
+          {{ productDetail?.Title }}
         </h3>
       </a>
       <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-        MRP: {{ detail.MRP }} $
+        MRP: {{ productDetail?.MRP }} $
       </h2>
       <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-        Deal Price :{{ detail.price }} $
+        Deal Price :{{ productDetail?.price }} $
       </h2>
       <div class="flex gap-4">
         <button

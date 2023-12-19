@@ -10,6 +10,9 @@ import { HomeComponent } from './Components/home/home.component';
 import { DealsComponent } from './Components/home/deals/deals.component';
 
 import { HomesliderComponent } from './Components/home/homeslider/homeslider.component';
+import { ProductPageComponent } from './Components/product-page/product-page.component';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import { HomesliderComponent } from './Components/home/homeslider/homeslider.com
     ThemeComponent,
     HomeComponent,
     DealsComponent,
-    HomesliderComponent
+    HomesliderComponent,
+    ProductPageComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

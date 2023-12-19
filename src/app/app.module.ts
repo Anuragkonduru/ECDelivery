@@ -8,6 +8,7 @@ import { ThemeComponent } from './Components/theme/theme.component';
 import { ThemeService } from './Services/theme.service';
 import { HomeComponent } from './Components/home/home.component';
 import { DealsComponent } from './Components/home/deals/deals.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HomesliderComponent } from './Components/home/homeslider/homeslider.component';
 import { ProductPageComponent } from './Components/product-page/product-page.component';
@@ -27,7 +28,8 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent,]

@@ -1,23 +1,21 @@
-<div class="flex gap-3 px-10">
+<div class="flex gap-3 flex-wrap flex-row px-10">
   <div
     *ngFor="let detail of homeDetails; let i; index"
-    class="overflow-hidden rounded-lg shadow transition hover:shadow-lg dark:shadow-gray-700/25"
-    (click)="selectedProduct($event,detail.id)"
+    class="w-1/5 overflow-hidden rounded-lg shadow transition hover:shadow-lg dark:shadow-gray-700/25 cursor-pointer"
+    (click)="selectedProduct($event, detail.product_id)"
   >
     <img
       alt="Office"
-      src="{{ detail.imageUrl }}"
-      class="h-70 w-full object-cover"
+      src="{{ detail.product_photo }}"
+      class="h-70 w-full object-fit aspect-video"
     />
 
-    <div class="bg-white p-4 dark:bg-gray-900 sm:p-6">
-      <a href="#">
-        <h3 class="mt-0.5 text-lg text-gray-900 dark:text-white" >
-          {{ detail.Title }}
-        </h3>
-      </a>
+    <div class="bg-white p-4 dark:bg-gray-900 sm:p-6 cursor-pointer">
+      <h3 class="mt-0.5 text-lg text-gray-900 dark:text-white">
+        {{ detail.product_title }}
+      </h3>
       <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-        MRP: {{ detail.MRP }} $
+        MRP: {{ detail.original_price }} $
       </h2>
       <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
         Deal Price :{{ detail.price }} $

@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomesliderComponent } from './Components/home/homeslider/homeslider.component';
 import { ProductPageComponent } from './Components/product-page/product-page.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -24,14 +25,15 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
     DealsComponent,
     HomesliderComponent,
     ProductPageComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [ThemeService],
-  bootstrap: [AppComponent,]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

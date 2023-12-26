@@ -16,6 +16,7 @@ export class ProductPageComponent implements OnInit {
     private homedetailsService: HomedetailsService
   ) {
     this.id = parseInt(this.route.snapshot.params['id']);
+
     this.productDetail = this.homedetailsService.getDetailsById(this.id);
   }
   ngOnInit(): void {}

@@ -1,21 +1,21 @@
 <div class="flex gap-3 px-10">
-  <div 
+  <div
     class="overflow-hidden rounded-lg shadow transition hover:shadow-lg dark:shadow-gray-700/25"
   >
     <img
       alt="Office"
-      src="{{ productDetail?.imageUrl }}"
+      src="{{ productDetail?.product_photo }}"
       class="h-70 w-full object-cover"
     />
 
     <div class="bg-white p-4 dark:bg-gray-900 sm:p-6">
       <a href="#">
-        <h3 class="mt-0.5 text-lg text-gray-900 dark:text-white" >
-          {{ productDetail?.Title }}
+        <h3 class="mt-0.5 text-lg text-gray-900 dark:text-white">
+          {{ productDetail?.product_title }}
         </h3>
       </a>
       <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-        MRP: {{ productDetail?.MRP }} $
+        MRP: {{ productDetail?.original_price }} $
       </h2>
       <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
         Deal Price :{{ productDetail?.price }} $
@@ -24,11 +24,11 @@
         <button
           class="inline-block rounded bg-teal-600 px-4 py-2 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring hover:bg-teal-500"
         >
-          Theme</button
+          Buy</button
         ><button
           class="inline-block rounded bg-teal-600 px-4 py-2 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring hover:bg-teal-500"
         >
-          Theme
+          Add to Cart
         </button>
       </div>
     </div>

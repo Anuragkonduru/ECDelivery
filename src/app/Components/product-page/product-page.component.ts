@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HomeDetails } from 'src/app/Interfaces/HomeDetails';
-import { HomedetailsService } from 'src/app/Services/homedetails.service';
+import { ProductDetail } from 'src/app/Interfaces/ProductDetail';
+import { ProductDetailsService } from 'src/app/Services/product-details.service';
 
 @Component({
   selector: 'app-product-page',
@@ -9,15 +9,20 @@ import { HomedetailsService } from 'src/app/Services/homedetails.service';
   styleUrls: ['./product-page.component.css'],
 })
 export class ProductPageComponent implements OnInit {
-  id!: number;
-  productDetail?: HomeDetails;
+  id!: string;
+  productDetail?: ProductDetail;
   constructor(
     private route: ActivatedRoute,
-    private homedetailsService: HomedetailsService
+    private productDetailsService: ProductDetailsService
   ) {
-    this.id = parseInt(this.route.snapshot.params['id']);
+    this.id = this.route.snapshot.params['id'];
 
-    this.productDetail = this.homedetailsService.getDetailsById(this.id);
+    const Result = this.productDetailsService
+      .getProductDetaisById(this.id)
+      .subscribe((response) => {
+        this.productDetail = response;
+      });
+    console.log(Result);
   }
   ngOnInit(): void {}
 }

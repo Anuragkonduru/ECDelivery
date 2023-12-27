@@ -9,8 +9,9 @@ import { ProductDetailsService } from 'src/app/Services/product-details.service'
   styleUrls: ['./product-page.component.css'],
 })
 export class ProductPageComponent implements OnInit {
-  id!: string;
+  id!: number;
   productDetail?: ProductDetail;
+  DealPrice!: number;
   constructor(
     private route: ActivatedRoute,
     private productDetailsService: ProductDetailsService
@@ -21,7 +22,10 @@ export class ProductPageComponent implements OnInit {
       .getProductDetaisById(this.id)
       .subscribe((response) => {
         this.productDetail = response;
+        this.DealPrice =
+          this.productDetail!.price - this.productDetail!.discountPercentage;
       });
+
     console.log(Result);
   }
   ngOnInit(): void {}

@@ -17,7 +17,7 @@ export class DealsComponent implements OnInit {
     console.log(Result);
   }
   ngOnInit(): void {}
-  selectedProduct(event: Event, id: string) {
+  selectedProduct(event: Event, id: number) {
     console.log(event);
     console.log(id);
     this.router.navigate(['/product/' + id]);

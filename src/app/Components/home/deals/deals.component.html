@@ -2,23 +2,23 @@
   <div
     *ngFor="let detail of homeDetails; let i; index"
     class="w-1/5 overflow-hidden rounded-lg shadow transition hover:shadow-lg dark:shadow-gray-700/25 cursor-pointer"
-    (click)="selectedProduct($event, detail.product_id)"
+    (click)="selectedProduct($event, detail.id)"
   >
     <img
       alt="Office"
-      src="{{ detail.product_photo }}"
+      src="{{ detail.thumbnail }}"
       class="bg-white h-70 w-full object-contain aspect-video"
     />
 
     <div class="bg-white p-4 dark:bg-gray-900 sm:p-6 cursor-pointer">
       <h3 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-        {{ detail.product_title }}
+        {{ detail.title }}
       </h3>
       <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-        MRP: {{ detail.original_price }} $
+        MRP: {{ detail.price }} $
       </h2>
       <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-        Deal Price :{{ detail.price }} $
+        Discount :{{ detail.discountPercentage }} $
       </h2>
       <div class="flex gap-4">
         <button

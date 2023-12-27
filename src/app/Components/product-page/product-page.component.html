@@ -4,21 +4,24 @@
   >
     <img
       alt="Office"
-      src="{{ productDetail?.product_photo }}"
+      src="{{ productDetail?.image }}"
       class="h-70 w-full object-cover"
     />
 
     <div class="bg-white p-4 dark:bg-gray-900 sm:p-6">
       <a href="#">
         <h3 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-          {{ productDetail?.product_title }}
+          {{ productDetail?.title }}
         </h3>
       </a>
       <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-        MRP: {{ productDetail?.original_price }} $
+        MRP: {{ productDetail?.price }} $
       </h2>
       <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-        Deal Price :{{ productDetail?.price }} $
+        Discount :{{ productDetail?.discountPercentage }} $
+      </h2>
+      <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
+        Deal Price :{{ DealPrice}} $
       </h2>
       <div class="flex gap-4">
         <button

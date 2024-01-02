@@ -1,12 +1,14 @@
 <div class="flex gap-3 px-10">
   <div
-    class="overflow-hidden rounded-lg shadow transition hover:shadow-lg dark:shadow-gray-700/25"
+    class="overflow-hidden flex rounded-lg shadow transition hover:shadow-lg dark:shadow-gray-700/25"
   >
-    <img
-      alt="Office"
-      src="{{ productDetail?.image }}"
-      class="h-70 w-full object-cover"
-    />
+    <div>
+      <img
+        alt="Office"
+        src="{{ productDetail?.image }}"
+        class="h-70 w-full object-cover"
+      />
+    </div>
 
     <div class="bg-white p-4 dark:bg-gray-900 sm:p-6">
       <a href="#">
@@ -14,15 +16,29 @@
           {{ productDetail?.title }}
         </h3>
       </a>
+      <p class="mt-0.5 text-lg text-gray-900 dark:text-white">
+        {{ productDetail?.description }}
+      </p>
+      <p class="mt-0.5 text-lg text-gray-900 dark:text-white">
+        {{ productDetail?.rating }}
+      </p>
+      <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
+        Discount :{{ productDetail?.discountPercentage }} %
+      </h2>
+      <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
+        Deal Price :{{ DealPrice }} $
+      </h2>
       <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
         MRP: {{ productDetail?.price }} $
       </h2>
-      <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-        Discount :{{ productDetail?.discountPercentage }} $
-      </h2>
-      <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-        Deal Price :{{ DealPrice}} $
-      </h2>
+
+      <p class="mt-0.5 text-lg text-gray-900 dark:text-white">
+        Stock :
+        {{ productDetail?.stock == 0 ? "Out of Stock" : productDetail?.stock }}
+      </p>
+      <p class="mt-0.5 text-lg text-gray-900 dark:text-white">
+        Category : {{ productDetail?.category }}
+      </p>
       <div class="flex gap-4">
         <button
           class="inline-block rounded bg-teal-600 px-4 py-2 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring hover:bg-teal-500"

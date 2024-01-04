@@ -1,0 +1,58 @@
+<div>
+  <p *ngIf="CartItems.length <= 0" class="h-screen">your Cart is Empty</p>
+  <div *ngIf="CartItems.length > 0" class="h-screen bg-repeat">
+    <div
+      *ngFor="let item of CartItems; let i = index"
+      class="flex gap-3 px-10 h-fit"
+    >
+      <div
+        class="overflow-hidden flex rounded-lg shadow transition hover:shadow-lg dark:shadow-gray-700/25"
+      >
+        <div>
+          <img
+            alt="Office"
+            src="{{ item.thumbnail }}"
+            class="h-70 w-full object-cover"
+          />
+        </div>
+
+        <div class="bg-white p-4 dark:bg-gray-900 sm:p-6">
+          <a href="#">
+            <h3 class="mt-0.5 text-lg text-gray-900 dark:text-white">
+              {{ item.title }}
+            </h3>
+          </a>
+          <p class="mt-0.5 text-lg text-gray-900 dark:text-white">
+            {{ item.description }}
+          </p>
+          <p class="mt-0.5 text-lg text-gray-900 dark:text-white">
+            {{ item.rating }}
+          </p>
+          <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
+            Discount :{{ item.discountPercentage }} %
+          </h2>
+          <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
+            Deal Price : $
+          </h2>
+          <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
+            MRP: {{ item.price }} $
+          </h2>
+
+          <p class="mt-0.5 text-lg text-gray-900 dark:text-white">
+            Stock :
+            {{ item.stock == 0 ? "Out of Stock" : item.stock }}
+          </p>
+          <p class="mt-0.5 text-lg text-gray-900 dark:text-white">
+            Category : {{ item.category }}
+          </p>
+          <button
+            class="inline-block rounded bg-teal-600 px-4 py-2 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring hover:bg-teal-500"
+            (click)="deleteItem(item.id)"
+          >
+            Delete Item
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

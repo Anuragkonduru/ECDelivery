@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductCard } from 'src/app/Interfaces/ProductCard';
+import { ProductDetail } from 'src/app/Interfaces/ProductDetail';
+import { CartService } from 'src/app/Services/cart.service';
 import { HomedetailsService } from 'src/app/Services/homedetails.service';
 
 @Component({
@@ -9,8 +10,12 @@ import { HomedetailsService } from 'src/app/Services/homedetails.service';
   styleUrls: ['./deals.component.css'],
 })
 export class DealsComponent implements OnInit {
-  homeDetails!: ProductCard[];
-  constructor(private details: HomedetailsService, private router: Router) {
+  homeDetails!: ProductDetail[];
+  constructor(
+    private details: HomedetailsService,
+    private router: Router,
+    private cartService: CartService
+  ) {
     const Result = this.details.GetApiDetails().subscribe((res) => {
       this.homeDetails = res;
     });
@@ -21,5 +26,9 @@ export class DealsComponent implements OnInit {
     console.log(event);
     console.log(id);
     this.router.navigate(['/product/' + id]);
+  }
+  addToCart(item: ProductDetail) {
+    this.cartService.addToCart(item);
+    // this.router.navigate(['/cart']);
   }
 }

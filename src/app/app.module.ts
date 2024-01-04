@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomesliderComponent } from './Components/home/homeslider/homeslider.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { ProductPageComponent } from './Components/product-page/product-page.component';
+import { CartComponent } from './Components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ProductPageComponent } from './Components/product-page/product-page.com
     HomesliderComponent,
     ProductPageComponent,
     NotFoundComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

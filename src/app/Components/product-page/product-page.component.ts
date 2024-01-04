@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductDetail } from 'src/app/Interfaces/ProductDetail';
+import { CartService } from 'src/app/Services/cart.service';
 import { ProductDetailsService } from 'src/app/Services/product-details.service';
 
 @Component({
@@ -10,23 +11,42 @@ import { ProductDetailsService } from 'src/app/Services/product-details.service'
 })
 export class ProductPageComponent implements OnInit {
   id!: number;
-  productDetail?: ProductDetail;
+  productDetail: ProductDetail = {
+    id: 0,
+    title: '',
+    description: '',
+    price: 0,
+    discountPercentage: 0,
+    rating: 0,
+    stock: 0,
+    brand: '',
+    category: '',
+    thumbnail: '',
+    images: [],
+  };
   DealPrice!: number;
   constructor(
     private route: ActivatedRoute,
-    private productDetailsService: ProductDetailsService
+    private productDetailsService: ProductDetailsService,
+    private cartService: CartService,
+    private router: Router
   ) {
     this.id = this.route.snapshot.params['id'];
 
-    const Result = this.productDetailsService
+    this.productDetailsService
       .getProductDetaisById(this.id)
       .subscribe((response) => {
+        // console.log(response);
         this.productDetail = response;
         this.DealPrice =
           this.productDetail!.price - this.productDetail!.discountPercentage;
+        // console.log(this.productDetail);
       });
-
-    console.log(Result);
   }
   ngOnInit(): void {}
+
+  addToCart(item: ProductDetail) {
+    this.cartService.addToCart(item);
+    // this.router.navigate(['/cart']);
+  }
 }

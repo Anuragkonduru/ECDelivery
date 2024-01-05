@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ThemeService } from 'src/app/Services/theme.service';
+import {  faSun } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-theme',
@@ -7,6 +8,7 @@ import { ThemeService } from 'src/app/Services/theme.service';
   styleUrls: ['./theme.component.css'],
 })
 export class ThemeComponent {
+  faSun = faSun;
   constructor(private themeService: ThemeService) {}
 
   toggleTheme(): void {

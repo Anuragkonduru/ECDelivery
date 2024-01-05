@@ -15,6 +15,8 @@ import { HomesliderComponent } from './Components/home/homeslider/homeslider.com
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { ProductPageComponent } from './Components/product-page/product-page.component';
 import { CartComponent } from './Components/cart/cart.component';
+import { CheckoutComponent } from './Components/checkout/checkout.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,14 @@ import { CartComponent } from './Components/cart/cart.component';
     ProductPageComponent,
     NotFoundComponent,
     CartComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FontAwesomeModule,
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent],

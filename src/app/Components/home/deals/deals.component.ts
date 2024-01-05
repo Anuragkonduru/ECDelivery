@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { ProductDetail } from 'src/app/Interfaces/ProductDetail';
 import { CartService } from 'src/app/Services/cart.service';
 import { HomedetailsService } from 'src/app/Services/homedetails.service';
@@ -10,6 +11,7 @@ import { HomedetailsService } from 'src/app/Services/homedetails.service';
   styleUrls: ['./deals.component.css'],
 })
 export class DealsComponent implements OnInit {
+  faCartPlus = faCartPlus;
   homeDetails!: ProductDetail[];
   constructor(
     private details: HomedetailsService,
@@ -30,5 +32,9 @@ export class DealsComponent implements OnInit {
   addToCart(item: ProductDetail) {
     this.cartService.addToCart(item);
     // this.router.navigate(['/cart']);
+  }
+  buy(item: ProductDetail) {
+    this.cartService.addToCart(item);
+    this.router.navigate(['/checkout']);
   }
 }

@@ -42,13 +42,14 @@
       <div class="flex gap-4">
         <button
           class="inline-block rounded bg-teal-600 px-4 py-2 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring hover:bg-teal-500"
-        >
+        (click)="buy(productDetail)"
+          >
           Buy</button
         ><button
           class="inline-block rounded bg-teal-600 px-4 py-2 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring hover:bg-teal-500"
           (click)="addToCart(productDetail)"
         >
-          Add to Cart
+         Add to <fa-icon [icon]="faCartPlus" size="lg"></fa-icon>
         </button>
       </div>
     </div>

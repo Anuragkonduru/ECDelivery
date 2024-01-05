@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductDetail } from 'src/app/Interfaces/ProductDetail';
 import { CartService } from 'src/app/Services/cart.service';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { ProductDetailsService } from 'src/app/Services/product-details.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { ProductDetailsService } from 'src/app/Services/product-details.service'
   styleUrls: ['./product-page.component.css'],
 })
 export class ProductPageComponent implements OnInit {
+  faCartPlus = faCartPlus;
   id!: number;
   productDetail: ProductDetail = {
     id: 0,
@@ -48,5 +50,9 @@ export class ProductPageComponent implements OnInit {
   addToCart(item: ProductDetail) {
     this.cartService.addToCart(item);
     // this.router.navigate(['/cart']);
+  }
+  buy(item: ProductDetail) {
+    this.cartService.addToCart(item);
+    this.router.navigate(['/checkout']);
   }
 }

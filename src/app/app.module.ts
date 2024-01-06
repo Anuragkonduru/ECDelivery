@@ -17,6 +17,9 @@ import { ProductPageComponent } from './Components/product-page/product-page.com
 import { CartComponent } from './Components/cart/cart.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
+import { SearchPipe } from './search.pipe';
+import { SearchComponent } from './Components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NotFoundComponent,
     CartComponent,
     CheckoutComponent,
+    SearchPipe,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +42,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserAnimationsModule,
     HttpClientModule,
     FontAwesomeModule,
+    FormsModule,
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent],

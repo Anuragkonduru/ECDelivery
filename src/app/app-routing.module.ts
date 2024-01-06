@@ -5,6 +5,7 @@ import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { HomeComponent } from './Components/home/home.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { ProductPageComponent } from './Components/product-page/product-page.component';
+import { SearchComponent } from './Components/search/search.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'product/:id', component: ProductPageComponent, pathMatch: 'full' },
   { path: 'cart', component: CartComponent, pathMatch: 'full' },
   { path: 'checkout', component: CheckoutComponent, pathMatch: 'full' },
+  { path: 'search', component: SearchComponent, pathMatch: 'full' },
   { path: '**', component: NotFoundComponent },
 ];
 

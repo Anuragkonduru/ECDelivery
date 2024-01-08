@@ -31,7 +31,6 @@ export class DealsComponent implements OnInit {
   }
   addToCart(item: ProductDetail) {
     this.cartService.addToCart(item);
-    // this.router.navigate(['/cart']);
   }
   buy(item: ProductDetail) {
     this.cartService.addToCart(item);

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'Ecommerce-clone';
+  @ViewChild('container', { read: ViewContainerRef })
+  container!: ViewContainerRef;
+  constructor() {}
+  // openModel(CustomComponent?: Component)
+  // {
+  //   this.modalService.openModel(this..container, CustomComponent);
+  // }
+  // closeModel() {
+  //   this['modalService'].closeModel(this.container);
+  // }
 }

@@ -11,15 +11,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CartComponent } from './Components/cart/cart.component';
+import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { HomesliderComponent } from './Components/home/homeslider/homeslider.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { ProductPageComponent } from './Components/product-page/product-page.component';
-import { CartComponent } from './Components/cart/cart.component';
-import { CheckoutComponent } from './Components/checkout/checkout.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FormsModule } from '@angular/forms';
-import { SearchPipe } from './search.pipe';
 import { SearchComponent } from './Components/search/search.component';
+import { SearchPipe } from './search.pipe';
+
+import { ModalService } from './Services/modal.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,7 @@ import { SearchComponent } from './Components/search/search.component';
     FontAwesomeModule,
     FormsModule,
   ],
-  providers: [ThemeService],
+  providers: [ThemeService, ModalService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

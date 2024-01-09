@@ -22,6 +22,7 @@ import { SearchComponent } from './Components/search/search.component';
 import { SearchPipe } from './search.pipe';
 
 import { ModalService } from './Services/modal.service';
+import { CatagoriesComponent } from './Components/catagories/catagories.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ModalService } from './Services/modal.service';
     CheckoutComponent,
     SearchPipe,
     SearchComponent,
+    CatagoriesComponent,
   ],
   imports: [
     BrowserModule,

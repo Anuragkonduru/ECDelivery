@@ -26,8 +26,9 @@ export class SearchComponent implements OnInit {
     }
   }
   queryText: any = '';
+  searchValue: string = '';
+
   SearchItems: ProductDetail[] = [];
-  modelService: any;
 
   constructor(
     private details: HomedetailsService,
@@ -39,6 +40,7 @@ export class SearchComponent implements OnInit {
       console.log(res);
       this.SearchItems = [...res];
     });
+    this.queryText = modalService.searchValue;
     console.log(this.queryText);
   }
   selectedProduct(event: Event, id: number) {
@@ -48,6 +50,8 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {}
   closeModel(event: Event) {
     if (event.target === event.currentTarget) {
+      this.modalService.searchValue = '';
+      this.searchValue = '';
       this.modalService.closeModel(this.parentComponent.container);
     }
   }

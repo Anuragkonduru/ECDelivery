@@ -1,0 +1,23 @@
+<div class="flex justify-center items-center h-screen">
+  <div class="flex w-5/6 flex-row gap-24 justify-center items-center flex-wrap ">
+    <div *ngFor="let catogory of groupedCatrogories" class="hover:scale-110 transition-transform" (click)="searchCatogory(catogory.catagory )"
+    >
+      <div
+        class="dark:bg-black flex flex-col justify-center items-center rounded-md p-4"
+      >
+        <div class="grid grid-cols-2 grid-flow-row gap-2">
+          <div *ngFor="let image of catogory.images">
+            <img
+              src="{{ image }}"
+              alt="{{ catogory.catagory }} Image"
+              class="aspect-square w-40"
+            />
+          </div>
+        </div>
+        <div class="uppercase p-2 text-bold">
+          {{ catogory.catagory }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

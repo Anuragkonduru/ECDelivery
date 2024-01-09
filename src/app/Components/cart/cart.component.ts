@@ -9,12 +9,18 @@ import { CartService } from 'src/app/Services/cart.service';
 })
 export class CartComponent implements OnInit {
   CartItems: ProductDetail[] = [];
+  discountedPrice: any[] = [];
+  TotalPrice: number = 0;
   constructor(private cartService: CartService) {}
   ngOnInit(): void {
     this.cartService.getCartItems().subscribe((Items) => {
       this.CartItems = [...Items];
-      // console.log('this.CartItems:');
-      // console.log([...this.CartItems]);
+    });
+    this.CartItems.forEach((element) => {
+      const dealprice: number = element.price - element.discountPercentage;
+      console.log(dealprice);
+      this.discountedPrice.push(dealprice);
+      this.TotalPrice = this.TotalPrice + dealprice;
     });
   }
   deleteItem(id: number) {

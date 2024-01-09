@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './Components/cart/cart.component';
+import { CatagoriesComponent } from './Components/catagories/catagories.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { HomeComponent } from './Components/home/home.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent, pathMatch: 'full' },
   { path: 'checkout', component: CheckoutComponent, pathMatch: 'full' },
   { path: 'search', component: SearchComponent, pathMatch: 'full' },
+  { path: 'catogory', component: CatagoriesComponent, pathMatch: 'full' },
   { path: '**', component: NotFoundComponent },
 ];
 

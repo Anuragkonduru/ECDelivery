@@ -17,7 +17,8 @@ import { AppComponent } from 'src/app/app.component';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent  {
+  discountedPrice: any[] = [];
   @Input() parentContainer!: ViewContainerRef;
   @ViewChild('myinput') myInputField: ElementRef | undefined;
   ngAfterViewInit() {
@@ -42,12 +43,20 @@ export class SearchComponent implements OnInit {
     });
     this.queryText = modalService.searchValue;
     console.log(this.queryText);
+
+     this.SearchItems.forEach((element) => {
+       const dealprice: number =
+         element.price - (element.price * element.discountPercentage) / 100;
+       console.log(dealprice);
+       this.discountedPrice.push(dealprice);
+     });
   }
   selectedProduct(event: Event, id: number) {
     this.modalService.closeModel(this.parentComponent.container);
     this.router.navigate(['/product/' + id]);
+
+
   }
-  ngOnInit(): void {}
   closeModel(event: Event) {
     if (event.target === event.currentTarget) {
       this.modalService.searchValue = '';

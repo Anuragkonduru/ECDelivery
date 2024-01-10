@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { ProductDetail } from 'src/app/Interfaces/ProductDetail';
 import { CartService } from 'src/app/Services/cart.service';
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { ProductDetailsService } from 'src/app/Services/product-details.service';
 
 @Component({
@@ -41,7 +41,9 @@ export class ProductPageComponent implements OnInit {
         // console.log(response);
         this.productDetail = response;
         this.DealPrice =
-          this.productDetail!.price - this.productDetail!.discountPercentage;
+          this.productDetail!.price -
+          (this.productDetail!.price * this.productDetail!.discountPercentage) /
+            100;
         // console.log(this.productDetail);
       });
   }
@@ -54,5 +56,8 @@ export class ProductPageComponent implements OnInit {
   buy(item: ProductDetail) {
     this.cartService.addToCart(item);
     this.router.navigate(['/checkout']);
+  }
+  mainImage(image: string) {
+    this.productDetail.thumbnail = image;
   }
 }

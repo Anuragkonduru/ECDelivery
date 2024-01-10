@@ -1,55 +1,80 @@
-<div class="flex gap-3 px-10 h-screen">
+<div class="flex justify-center content-center gap-3 px-10 h-screen">
   <div
     class="overflow-hidden flex rounded-lg shadow transition hover:shadow-lg dark:shadow-gray-700/25"
   >
-    <div>
-      <img
-        alt="Office"
-        src="{{ productDetail.thumbnail }}"
-        class="h-70 w-full object-cover"
-      />
+    <div class="max-h-screen h-fit max-w-1/2 pt-4">
+      <div class="border-lime-1 flex justify-center">
+        <img
+          alt=""
+          src="{{ productDetail.thumbnail }}" 
+          class="object-contain aspect-square"
+        />
+      </div>
+      <div class="flex gap-2">
+        <div *ngFor="let image of productDetail.images">
+          <img
+            alt=""
+            src="{{ image }}"
+            class="h-3/4 object-cover rounded-lg"
+            (click)="mainImage(image)"
+            (mouseenter)="mainImage(image)"
+          />
+        </div>
+      </div>
     </div>
 
-    <div class="bg-white p-4 dark:bg-gray-900 sm:p-6 h-fit">
-      <a href="#">
-        <h3 class="mt-0.5 text-lg text-gray-900 dark:text-white">
+    <div class="bg-white p-4 dark:bg-gray-900 sm:p-6 h-fit md:h-screen">
+      <div class="flex">
+        <h3
+          class="mt-0.5 text-3xl font-bold md:p-4 text-gray-900 dark:text-white"
+        >
           {{ productDetail.title }}
         </h3>
-      </a>
-      <p class="mt-0.5 text-lg text-gray-900 dark:text-white">
+        <p class="mt-0.5 text-lg pt-6 text-gray-900 dark:text-white">
+          ⭐{{ productDetail.rating }}
+        </p>
+      </div>
+      <p
+        class="mt-0.5 text-lg md:p-4 text-gray-900 dark:text-white text-nowrap"
+      >
         {{ productDetail.description }}
       </p>
-      <p class="mt-0.5 text-lg text-gray-900 dark:text-white">
-        {{ productDetail.rating }}
+      <hr class="p-2" />
+      <div>
+        <h2
+          class="mt-0.5 text-sm line-through md:pl-4 md:pb-0 text-gray-900 dark:text-white"
+        >
+          MRP: {{ productDetail.price }}$
+        </h2>
+        <h2 class="mt-0.5 md:pl-4 md:pb-0 text-gray-900 dark:text-white flex">
+          <p class="pt-2">Deal Price :</p>
+          <p class="text-2xl text-red-600">${{ DealPrice }}</p>
+        </h2>
+        <h2 class="mt-0.5 md:pl-4 md:pb-2 text-gray-900 dark:text-white flex">
+          <p class="text-base">Discount :</p>
+          <p class="text-lg text-red-600">
+            {{ productDetail.discountPercentage }}%
+          </p>
+        </h2>
+      </div>
+      <hr />
+      <p class="mt-0.5 text-base md:pl-4 md:pt-2 text-gray-900 dark:text-white">
+        {{ productDetail.stock == 0 ? "Out of Stock" : "In Stock" }}
       </p>
-      <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-        Discount :{{ productDetail.discountPercentage }} %
-      </h2>
-      <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-        Deal Price :{{ DealPrice }} $
-      </h2>
-      <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-        MRP: {{ productDetail.price }} $
-      </h2>
-
-      <p class="mt-0.5 text-lg text-gray-900 dark:text-white">
-        Stock :
-        {{ productDetail.stock == 0 ? "Out of Stock" : productDetail.stock }}
-      </p>
-      <p class="mt-0.5 text-lg text-gray-900 dark:text-white">
+      <p class="mt-0.5 text-base md:pl-4 text-gray-900 dark:text-white">
         Category : {{ productDetail.category }}
       </p>
-      <div class="flex gap-4">
+      <div class="flex gap-4 md:p-4">
         <button
           class="inline-block rounded bg-teal-600 px-4 py-2 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring hover:bg-teal-500"
-        (click)="buy(productDetail)"
-          >
+          (click)="buy(productDetail)"
+        >
           Buy</button
         ><button
           class="inline-block rounded bg-teal-600 px-4 py-2 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring hover:bg-teal-500"
           (click)="addToCart(productDetail)"
         >
-         Add to <fa-icon [icon]="faCartPlus" size="lg"></fa-icon>
+          Add to <fa-icon [icon]="faCartPlus" size="lg"></fa-icon>
         </button>
       </div>
     </div>

@@ -33,7 +33,7 @@
         </button>
       </div>
       <div class="md:flex md:items-center md:gap-12">
-        <nav aria-label="Global" class="hidden md:block">
+        <nav aria-label="Global" class="md:block">
           <ul class="flex items-center gap-6 text-sm">
             <li>
               <a
@@ -53,13 +53,15 @@
               </a>
               <p>({{ CartItemsCount }})</p>
             </li>
+            <li>
+              <div>
+                <app-theme></app-theme>
+              </div>
+            </li>
           </ul>
         </nav>
 
         <div class="flex items-center gap-4">
-          <div>
-            <app-theme></app-theme>
-          </div>
           <!-- <a [routerLink]="'Profile'" class="block shrink-0">
             <span class="sr-only">Profile</span>
             <img
@@ -68,7 +70,7 @@
               class="h-10 w-10 rounded-full object-cover"
             />
           </a> -->
-          <div class="block md:hidden">
+          <!-- <div class="block md:hidden">
             <button
               class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
             >
@@ -87,7 +89,7 @@
                 />
               </svg>
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

@@ -38,53 +38,44 @@
     </div>
     <div class="h-screen bg-repeat overflow-y-scroll">
       <div
-        *ngFor="let item of SearchItems | search : queryText"
-        class="flex gap-3 px-10 h-fit"
+        *ngIf="SearchItems.length > 0"
+        class="bg-repeat flex flex-col flex-1 gap-2"
       >
         <div
-          class="overflow-hidden flex rounded-lg shadow transition hover:shadow-lg dark:shadow-gray-700/25"
-          (click)="selectedProduct($event, item.id)"
+          *ngFor="let item of SearchItems | search : queryText; let i = index"
+          class="flex gap-3 px-10"
         >
-          <div>
-            <img
-              alt="Office"
-              src="{{ item.thumbnail }}"
-              class="h-70 w-full object-cover"
-            />
-          </div>
+          <div
+            class="overflow-hidden place-content-between md:px-12 w-screen flex gap-2 rounded-lg shadow transition hover:shadow-lg dark:shadow-gray-700/25"
+            (click)="selectedProduct($event, item.id)"
+          >
+            <div>
+              <img alt="Office" src="{{ item.thumbnail }}" class="h-32 w-96" />
+            </div>
 
-          <div class="bg-white p-4 h-70 dark:bg-gray-900 sm:p-6 w-screen">
-            <a href="#">
-              <h3 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-                {{ item.title }}
-              </h3>
-            </a>
-            <p class="mt-0.5 text-lg text-gray-900 dark:text-white">
-              {{ item.description }}
-            </p>
-            <p class="mt-0.5 text-lg text-gray-900 dark:text-white">
-              {{ item.rating }}
-            </p>
-            <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-              Discount :{{ item.discountPercentage }} %
-            </h2>
-            <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-              Deal Price : $
-            </h2>
-            <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-              MRP: {{ item.price }} $
-            </h2>
+            <div class="bg-white p-4 md:w-full dark:bg-gray-900 sm:p-6">
+              <a href="#">
+                <h3 class="mt-0.5 text-lg text-gray-900 dark:text-white">
+                  {{ item.title }}
+                </h3>
+              </a>
 
-            <p class="mt-0.5 text-lg text-gray-900 dark:text-white">
-              Stock :
-              {{ item.stock == 0 ? "Out of Stock" : item.stock }}
-            </p>
-            <p class="mt-0.5 text-lg text-gray-900 dark:text-white">
-              Category : {{ item.category }}
-            </p>
+              <p class="mt-0.5 text-lg text-gray-900 dark:text-white">
+                {{ item.rating }}
+              </p>
+            </div>
+            <div
+              class="bg-white p-4 md:w-72 flex justify-center items-center dark:bg-gray-900"
+            >
+              <h2 class="mt-0.5 text-lg text-gray-900 dark:text-white">
+                Price: {{ item.price }} $
+              </h2>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- old -->
     </div>
   </div>
 </div>

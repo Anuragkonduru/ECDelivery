@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -9,10 +9,6 @@ import { ProductDetail } from '../Interfaces/ProductDetail';
   providedIn: 'root',
 })
 export class ProductDetailsService {
-  headers = new HttpHeaders({
-    'X-RapidAPI-Key': '89adb07f33mshcf70143dcbf7faep15dbd5jsnc990b01b333a',
-    'X-RapidAPI-Host': 'real-time-product-search.p.rapidapi.com',
-  });
   params = new HttpParams();
 
   ProductDetails!: ProductDetail;

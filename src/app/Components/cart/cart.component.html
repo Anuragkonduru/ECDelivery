@@ -1,4 +1,4 @@
-<div class="flex pt-4 relative flex-col justify-center items-center h-full">
+<div class=" min-h-screen flex pt-4 relative flex-col justify-center items-center h-full">
   <p *ngIf="CartItems.length <= 0" class="h-screen">your Cart is Empty</p>
   <div
     *ngIf="CartItems.length > 0"
@@ -8,7 +8,7 @@
       <div
         class="overflow-hidden place-content-between md:px-12 w-screen flex gap-2 rounded-lg shadow transition hover:shadow-lg dark:shadow-gray-700/25"
       >
-        <div>
+        <div (click)="selectedProduct(item.id)">
           <img alt="Office" src="{{ item.thumbnail }}" class="h-72 w-96" />
         </div>
 

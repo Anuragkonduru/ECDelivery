@@ -23,6 +23,7 @@ import { SearchPipe } from './search.pipe';
 
 import { ModalService } from './Services/modal.service';
 import { CatagoriesComponent } from './Components/catagories/catagories.component';
+import { FooterComponent } from './Components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { CatagoriesComponent } from './Components/catagories/catagories.componen
     SearchPipe,
     SearchComponent,
     CatagoriesComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

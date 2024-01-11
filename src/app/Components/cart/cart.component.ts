@@ -32,4 +32,7 @@ export class CartComponent implements OnInit {
   buy() {
     this.router.navigate(['/checkout']);
   }
+  selectedProduct( id: number) {
+    this.router.navigate(['/product/' + id]);
+  }
 }
